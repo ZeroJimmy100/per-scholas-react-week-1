@@ -1,3 +1,5 @@
+console.log("hi!!");
+
 /*
 Use the strings in the arrays to form a sentence like: "Hi, my name is <Name>
 Be sure to have beginning words of sentences with the proper case.
@@ -13,6 +15,9 @@ const greetingWords = ["hello","hi","hey"];
 const prefixes = ["my", "his", "her", "their"];
 */
 
+const greetingWords = ["hello", "hi", "Hey"];
+const prefixes = ["my", "his", "her", "their"]
+
 /**
  @param {string} name
         name of person
@@ -24,5 +29,28 @@ const prefixes = ["my", "his", "her", "their"];
 */
 function greeting(name, gender, isSelf) {
     // do stuff here ...
-    return  ``; // use template literal for string to return
+    let new_name = name.toLowerCase().replace(/\b\w{1,}/g, function(l){
+           return l.charAt(0).toUpperCase() + l.slice(1);
+    });
+
+    new_greetings = greetingWords[1].replace(/[A-Za-z]/, function(str){
+           return str.charAt(0).toUpperCase() + str.slice(1);
+    })
+
+    let message = "";
+
+    if(gender == "male"){
+          message = `${new_greetings}, ${prefixes[0]} is ${new_name}`;
+    }
+    else if(gender == "female")
+    {
+           message = `${new_greetings}, ${prefixes[2]} is ${new_name}`; 
+    }
+    else{
+           message = `${new_greetings}, ${prefixes[3]} is ${new_name}`;
+    }
+    return  message; // use template literal for string to return
   }
+
+  const message = greeting("Adam", "male", true);
+  console.log(message); // hi, my name is name 

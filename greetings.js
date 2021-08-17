@@ -29,8 +29,8 @@ const prefixes = ["my", "his", "her", "their"]
 */
 function greeting(name, gender, isSelf) {
     // do stuff here ...
-    let new_name = name.toLowerCase().replace(/\b\w{1,}/g, function(l){
-           return l.charAt(0).toUpperCase() + l.slice(1);
+    let new_name = name.toLowerCase().replace(/\b\w{1,}/g, function(str){
+           return str.charAt(0).toUpperCase() + str.slice(1);
     });
 
     new_greetings = greetingWords[1].replace(/[A-Za-z]/, function(str){
@@ -52,5 +52,5 @@ function greeting(name, gender, isSelf) {
     return  message; // use template literal for string to return
   }
 
-  const message = greeting("Adam", "male", true);
+  const message = greeting("Adam", "alien", true);
   console.log(message); // hi, my name is name 

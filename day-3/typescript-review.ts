@@ -1,5 +1,113 @@
 const readline = require('readline');
 
+// type HiResponse = string | object;
+
+type HiResponse = {
+    name: string;
+    city?: string;
+};
+
+type PersonInfo = {
+    name: string;
+    city?: string;
+};
+
+type ShortName = string;
+
+type NameString = string;
+
+// type FullName = {
+//     firstName: string,
+//     middleName?: string,
+//     lastName: string
+// }
+
+interface FullName {
+    firstName: string,
+    middleName?: string,
+    lastName: string
+}
+
+type RichName = {
+    firstName: string;
+    middleName?: string;
+    lastName: string;
+    nickName: string;
+    prefix: Prefix;
+}
+
+type Prefix = "mrs" | "ms" | ""
+
+type LastName = {
+    prefix: string;
+    lastName: string;
+}
+
+type Name = ShortName | FullName | RichName | LastName;
+
+// function sayHi(name: string, city?: string): string | any | object {
+//     if(city)
+//     {
+//         return {
+//             name, city
+//         };
+//     }
+//     return `Hi, ${name}!`;
+// }
+
+// function sayHi(name: string, city?: string): HiResponse {
+//     if(city)
+//     {
+//         return {
+//             name, city
+//         };
+//     }
+//     return `Hi, ${name}!`;
+// }
+
+// function sayHi(name: string, city?: string) {
+//     if(city)
+//     {
+//         const response = {
+//             name: name,
+//             city: city,
+//         };
+//     }else
+//     {
+//         const response = {name: `Hi, ${name}!`};
+//     }
+//     return response;
+// }
+
+// function sayHi(info: PersonInfo): string {
+//     if(info.city)
+//     {
+//         const response = {
+//             name: info.name,
+//             city: info.city,
+//         };
+//     }else
+//     {
+//         const response: PersonInfo = {name: `Hi, ${name}!`};
+//     }
+//     return response;
+// }
+
+function sayHi(info: PersonInfo): string {
+    if(info.city)
+    {
+        return `Hi, my name is ${info.name}, I live in ${info.city}`;
+    }
+    return `Hi, my name is ${info.name}`;
+}
+
+
+
+const response: PersonInfo = sayHi("Richard", "Atlantic City");
+const city = response.city;
+console.log(city);
+
+
 const SUNNY_DAY_MESSAGE: string = "It is sunny out today!";
 let isSunny: boolean = true;
 
